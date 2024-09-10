@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank Sneaker Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="home.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a class="active" href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li id="lg-bag"><a href="{{ url_for('cart') }}"><i class="fal fa-shopping-bag"></i></a></li>
+                <li id="account_bt"><i class="fas fa-user"></i></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+            <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="text" id="username" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="error-message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Login" class="btn">
+                <button type="button" id="register_bt" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="register_error_message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </div>
+
+    <div id="loggedInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>You are now logged in.</p>
+            <button type="button" id="viewProfileButton" class="btn">
+                <a href="{{ url_for('profile') }}" style="text-decoration: none; color: inherit;">View Profile</a>
+            </button>
+            <button type="button" id="logoutButton" class="btn">Logout</button>
+        </div>
+    </div>
+
+    <section id ="page-header" class="about-header">
+        <h2>#了解我們</h2>
+        <p>讓你多一份安心</p>
+    </section>
+
+    <section id="about-head" class="section-p1">
+        <img src="img/a6.jpg" alt="">
+        <div>
+            <h2>我們是誰？</h2>
+            <p>Frank Sneaker Shop 是由普通大學生，藉著熱愛潮流物品的心所經營的，本商店的商品皆從品牌直營店進貨，不需擔心貨源是否有疑慮，
+                本商店不會賣假貨，也痛恨賣假貨的人，希望大家多多支持本商店！！
+            </p>
+
+            <abbr title="">如果有想要的鞋子在頁面上沒看到，歡迎私訊詢問！</abbr>
+
+            <br><br>
+
+            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">商店不定期更新商品喔～ 會盡量以最快的速度上架新品！</marquee>
+        </div>
+    </section>
+
+    <section id="about-app" class="section-p1">
+        <h1>Download Our <a href="#">App</a></h1>
+        <div class="video">
+            <video autoplay muted loop src="img/1.mp4"></video>
+        </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <!-- <img class="logo" src="img/logo.jpg" alt=""> -->
+            <h4>Contact</h4>
+            <p><strong>地址： </strong> 新北市新店區</p>
+            <p><strong>電話： </strong> 0909317922</p>
+            <p><strong>時間： </strong> 10:00 - 18:00</p>
+            <div class="follow">
+                <h4>關注我們</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="col">
+            <h4>關於</h4>
+            <a href="#">關於我們</a>
+            <a href="#">運送資訊</a>
+            <a href="#">隱私政策</a>
+            <a href="#">條款和條例</a>
+            <a href="#">聯絡我們</a>
+        </div>
+
+        <div class="col">
+            <h4>我的帳戶</h4>
+            <a href="#">登入</a>
+            <a href="#">查看購物車</a>
+            <a href="#">我的願望清單</a>
+            <a href="#">訂單追蹤</a>
+            <a href="#">尋求幫助</a>
+        </div>
+
+        <div class="col install">
+            <h4>下載 App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/app.jpg" alt="">
+                <img src="img/play.jpg" alt="">
+            </div>
+            <p>信用卡付款方式</p>
+            <img src="img/pay.png" alt="">            
+        </div>
+
+        <div class="copyright">
+            <p>@ 2023, Tech2 etc</p>
+        </div>
+
+    </footer>
+
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank Sneaker Shop</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+
+<body>
+
+    <section id="header">
+        <a href="home.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a class="active" href="{{ url_for('contact') }}">Contact</a></li>
+                <li id="lg-bag"><a href="{{ url_for('cart') }}"><i class="fal fa-shopping-bag"></i></a></li>
+                <li id="account_bt"><i class="fas fa-user"></i></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ul>
+        </div>
+        <div id="mobile">
+            <i id="bar" class="fas fa-outdent"></i>
+            <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="text" id="username" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="error-message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Login" class="btn">
+                <button type="button" id="register_bt" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="register_error_message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </div>
+
+    <div id="loggedInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>You are now logged in.</p>
+            <button type="button" id="viewProfileButton" class="btn">
+                <a href="{{ url_for('profile') }}" style="text-decoration: none; color: inherit;">View Profile</a>
+            </button>
+            <button type="button" id="logoutButton" class="btn">Logout</button>
+        </div>
+    </div>
+
+    <section id ="page-header2" class="about-header">
+        <h2>#聯絡我們</h2>
+        <p>傳出訊息，讓我們聽聽你的心聲！！</p>
+    </section>
+
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            <span>GET IN TOUCH</span>
+            <h2>來店裡探索新世界或是透過以下資訊跟我們聯絡！</h2>
+            <h3>店舖資訊</h3>
+            <div>
+                <li>
+                    <i class="fal fa-map"></i>
+                    <p>新北市新店區北新路</p>
+                </li>
+                <li>
+                    <i class="fal fa-envelope"></i>
+                    <p>frandy@gmail.com</p>
+                </li>
+                <li>
+                    <i class="fal fa-phone-alt"></i>
+                    <p>09093179XX</p>
+                </li>
+                <li>
+                    <i class="fal fa-clock"></i>
+                    <p>Monday to Sunday : 10:00 am to 18:00 pm</p>
+                </li>
+            </div>
+        </div>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9577423529754!2d121.53915832593624!3d24.96755232785947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468018b47f31335%3A0x66501b219c2551ec!2z5paw5bqX5Y2A5YWs5omA!5e0!3m2!1sen!2stw!4v1685094497355!5m2!1sen!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <section id="form-details">
+        <form action="" >
+            <span>傳送訊息</span>
+            <h2>讓我們聽聽你的意見</h2>
+            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Subject">
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <button class="normal">傳送</button>
+        </form>
+        
+        <div id="contact-img" >
+            <img src="img/welcome.jpeg" alt="無法顯示">
+        </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span>
+            </p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <!-- <img class="logo" src="img/logo.jpg" alt=""> -->
+            <h4>Contact</h4>
+            <p><strong>地址： </strong> 新北市新店區</p>
+            <p><strong>電話： </strong> 0909317922</p>
+            <p><strong>時間： </strong> 10:00 - 18:00</p>
+            <div class="follow">
+                <h4>關注我們</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+
+    
+        <div class="col">
+            <h4>關於</h4>
+            <a href="#">關於我們</a>
+            <a href="#">運送資訊</a>
+            <a href="#">隱私政策</a>
+            <a href="#">條款和條例</a>
+            <a href="#">聯絡我們</a>
+        </div>
+
+        <div class="col">
+            <h4>我的帳戶</h4>
+            <a href="#">登入</a>
+            <a href="#">查看購物車</a>
+            <a href="#">我的願望清單</a>
+            <a href="#">訂單追蹤</a>
+            <a href="#">尋求幫助</a>
+        </div>
+
+        <div class="col install">
+            <h4>下載 App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="img/app.jpg" alt="">
+                <img src="img/play.jpg" alt="">
+            </div>
+            <p>信用卡付款方式</p>
+            <img src="img/pay.png" alt="">            
+        </div>
+
+        <div class="copyright">
+            <p>@ 2023, Tech2 etc</p>
+        </div>
+
+    </footer>
+
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
